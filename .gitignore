@@ -27,3 +27,10 @@ yarn-error.log*
 .env.development.local
 .env.test.local
 .env.production.local
+
+#firebase
+**/.firebase
+**/.firebaserc
+**/database-debug.log
+**/firebase-debug.log
+**/pubsub-debug.log
