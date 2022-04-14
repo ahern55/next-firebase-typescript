@@ -8,11 +8,7 @@
   },
   "hosting": {
     "public": "out",
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ],
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "rewrites": [
       {
         "source": "**",
@@ -25,28 +21,31 @@
   },
   "emulators": {
     "auth": {
-      "port": 9099
+      "port": 9099,
+      "host": "127.0.0.1"
     },
     "functions": {
-      "port": 5001
+      "port": 5001,
+      "host": "127.0.0.1"
     },
     "firestore": {
-      "port": 8080
+      "port": 8081,
+      "host": "127.0.0.1"
     },
     "database": {
-      "port": 9000
+      "port": 9000,
+      "host": "127.0.0.1"
     },
     "hosting": {
-      "port": 5000
-    },
-    "pubsub": {
-      "port": 8085
+      "port": 8080
     },
     "storage": {
-      "port": 9199
+      "port": 9199,
+      "host": "127.0.0.1"
     },
     "ui": {
-      "enabled": true
+      "enabled": true,
+      "port": 4000
     }
   },
   "remoteconfig": {
