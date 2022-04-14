@@ -1,6 +1,5 @@
 import React from "react";
 import "../styles/global.css";
-import { UserProvider } from "@auth0/nextjs-auth0";
 import Shell from "../components/shell/";
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
@@ -9,11 +8,9 @@ import { initializeApp } from "firebase/app";
 
 export default function App({ Component, pageProps }) {
   return (
-    <UserProvider>
-      <Shell>
-        <Component {...pageProps} />;
-      </Shell>
-    </UserProvider>
+    <Shell>
+      <Component {...pageProps} />;
+    </Shell>
   );
 }
 
