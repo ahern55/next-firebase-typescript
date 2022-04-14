@@ -1,3 +1,4 @@
+import React from "react";
 import "../styles/global.css";
 import { UserProvider } from "@auth0/nextjs-auth0";
 import Shell from "../components/shell/";
