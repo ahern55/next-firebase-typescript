@@ -34,4 +34,4 @@ yarn-error.log*
 **/database-debug.log
 **/firebase-debug.log
 **/pubsub-debug.log
-**/.log
+**/*.log
