@@ -89,23 +89,6 @@ export default function Home() {
               }
             </h3>
           </div>
-
-          <div style={{ marginTop: "64px" }}>
-            <h3>Voters:</h3>
-            <div
-              style={{
-                maxHeight: "320px",
-                overflowY: "auto",
-                width: "240px",
-              }}
-            >
-              {votes?.docs?.map((doc) => (
-                <>
-                  <VoterList id={doc.id} key={doc.id} vote={doc.data().vote} />
-                </>
-              ))}
-            </div>
-          </div>
         </>
       )}
     </div>
