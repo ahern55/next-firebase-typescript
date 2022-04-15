@@ -22,6 +22,7 @@ export default function VoterList({ id, vote }: Props): ReactElement {
     return null;
   }
 
+  console.log(value);
   return (
     <div
       style={{
@@ -38,10 +39,10 @@ export default function VoterList({ id, vote }: Props): ReactElement {
           marginTop: "8px",
           marginRight: "8px",
         }}
-        src={value.data().photoURL}
+        src={value.data()?.photoURL}
       />
       <div>
-        <h4 style={{ marginBottom: 0 }}>{value.data().displayName}</h4>
+        <h4 style={{ marginBottom: 0 }}>{value.data()?.displayName}</h4>
         <h4 style={{ marginTop: 0 }}>
           Voted: {vote === "yes" ? "✔️🍍" : "❌🍍"}
         </h4>
