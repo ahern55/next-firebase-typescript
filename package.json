@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@headlessui/react": "^1.5.0",
     "firebase": "^8.6.2",
     "firebase-functions": "^3.14.1",
     "next": "10.2.3",
