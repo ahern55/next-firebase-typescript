@@ -1,5 +1,7 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
 # dependencies
-**/node_modules
+/node_modules
 /.pnp
 .pnp.js
 
@@ -7,7 +9,6 @@
 /coverage
 
 # next.js
-/.next
 /.next/
 /out/
 
@@ -16,6 +17,7 @@
 
 # misc
 .DS_Store
+*.pem
 
 # debug
 npm-debug.log*
@@ -28,10 +30,5 @@ yarn-error.log*
 .env.test.local
 .env.production.local
 
-#firebase
-**/.firebase
-**/.firebaserc
-**/database-debug.log
-**/firebase-debug.log
-**/pubsub-debug.log
-**/*.log
+# vercel
+.vercel
