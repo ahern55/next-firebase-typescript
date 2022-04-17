@@ -1,3 +1,3 @@
-import Shell from "./shell";
+import Shell from "./Shell";
 
 export default Shell;
