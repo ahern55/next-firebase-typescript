@@ -22,7 +22,7 @@ export default function VoterList({ id, vote }: Props): ReactElement {
     return null;
   }
 
-  console.log(value);
+  if (value.data()) console.log(value.data());
   return (
     <div
       style={{

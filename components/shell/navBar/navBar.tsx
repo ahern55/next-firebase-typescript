@@ -1,10 +1,9 @@
 import React from "react";
 import { Transition } from "@headlessui/react";
 import { useState } from "react";
-import Link from "next/link";
 import NavBarOptions from "./navBarOptions";
 
-export default function NavBar() {
+export default function NavBar({ activePage, setActivePage }) {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <>
@@ -13,19 +12,10 @@ export default function NavBar() {
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
               <div className="flex-shrink-0">
-                <img
-                  className="h-8 w-8"
-                  src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
-                  alt="Workflow"
-                />
-              </div>
-              <div className="hidden md:block">
-                <div className="ml-10 flex items-baseline space-x-4">
-                  <NavBarOptions />
-                </div>
+                <img className="h-8 w-8" src="./fire.svg" alt="Workflow" />
               </div>
             </div>
-            <div className="-mr-2 flex md:hidden">
+            <div className="-mr-2 flex">
               <button
                 onClick={() => setIsOpen(!isOpen)}
                 type="button"
@@ -83,8 +73,12 @@ export default function NavBar() {
         >
           {(ref) => (
             <div className="md:hidden" id="mobile-menu">
-              <div ref={ref} className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <NavBarOptions />
+              <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <NavBarOptions
+                  activePage={activePage}
+                  setActivePage={setActivePage}
+                  mobile={true}
+                />
               </div>
             </div>
           )}
