@@ -5,7 +5,7 @@ import Dashboard from "../components/dashboard";
 import Splash from "../components/splash";
 
 export default function index() {
-  const [user, loading, error] = useAuthState(firebase.auth());
+  const [user, loading] = useAuthState(firebase.auth());
 
   return (
     <div>
