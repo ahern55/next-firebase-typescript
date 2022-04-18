@@ -2,59 +2,26 @@ import React from "react";
 import Svg from "../../svg";
 import firebase from "../../../firebase/clientApp";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 type Props = {
-  activePage: string;
-  /** callback to set the active page */
-  setActivePage: (arg0: string) => void;
   /** Whether the navbar options are appearing on a small screen, or a collapsed navbar */
   smallScreen?: boolean;
 };
 
-export default function NavBarOptions({
-  activePage,
-  setActivePage,
-  smallScreen = false,
-}: Props) {
+export default function NavBarOptions({ smallScreen = false }: Props) {
   return (
     <>
-      <NavItem
-        activePage={activePage}
-        link="/"
-        svgIcon={<Svg.ChartPieSvg />}
-        title="Dashboard"
-        setActivePage={setActivePage}
-      />
-      <NavItem
-        activePage={activePage}
-        link="/users"
-        svgIcon={<Svg.UsersSvg />}
-        title="Users"
-        setActivePage={setActivePage}
-      />
-      <NavItem
-        activePage={activePage}
-        link="#users"
-        svgIcon={<Svg.UsersSvg />}
-        title="Messages"
-        setActivePage={setActivePage}
-      />
+      <NavItem link="/" svgIcon={<Svg.ChartPieSvg />} title="Dashboard" />
+      <NavItem link="/users" svgIcon={<Svg.UsersSvg />} title="Users" />
+      <NavItem link="#users" svgIcon={<Svg.UsersSvg />} title="Messages" />
       {smallScreen && (
         <>
+          <NavItem link="#users" svgIcon={<Svg.CogSvg />} title="Settings" />
           <NavItem
-            activePage={activePage}
-            link="#users"
-            svgIcon={<Svg.CogSvg />}
-            title="Settings"
-            setActivePage={setActivePage}
-          />
-          <NavItem
-            activePage={activePage}
             link="#users"
             svgIcon={<Svg.SignOutSvg />}
             title="Sign Out"
-            // hacky :)
-            setActivePage={signOut}
           />
         </>
       )}
@@ -63,33 +30,32 @@ export default function NavBarOptions({
 }
 
 type NavItemProps = {
-  activePage: string;
   link: string;
   /** callback to set the active page */
-  setActivePage: (arg0: string) => void;
   svgIcon: JSX.Element;
   title: string;
 };
 
-const NavItem = ({
-  activePage,
-  link,
-  svgIcon,
-  title,
-  setActivePage,
-}: NavItemProps) => (
-  <Link href={link}>
-    <a
-      onClick={() => setActivePage(title)}
-      className={`flex items-center no-underline text-green-50 hover:text-green-100 p-3 rounded-md ${
-        activePage === title ? "bg-blue-800" : ""
-      }`}
-    >
-      {svgIcon}
-      <div className="font-bold pl-3">{title}</div>
-    </a>
-  </Link>
-);
+const NavItem = ({ link, svgIcon, title }: NavItemProps) => {
+  const router = useRouter();
+  return (
+    <Link href={link}>
+      <a
+        className={`flex items-center no-underline text-green-50 hover:text-green-100 p-3 rounded-md ${
+          isActivePage(title, router.pathname) ? "bg-blue-800" : ""
+        }`}
+      >
+        {svgIcon}
+        <div className="font-bold pl-3">{title}</div>
+      </a>
+    </Link>
+  );
+};
+
+const isActivePage = (title: string, pathName: string) => {
+  console.log(pathName.toLowerCase().replace("/", ""));
+  return pathName.toLowerCase().replace("/", "") === title.toLowerCase();
+};
 
 const signOut = async () => {
   firebase.auth().signOut();

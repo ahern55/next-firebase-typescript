@@ -3,17 +3,11 @@ import firebase from "../../../firebase/clientApp";
 import Svg from "../../svg/";
 import NavBarOptions from "../navBar/navBarOptions";
 
-type Props = {
-  activePage: string;
-  /** callback to set the active page */
-  setActivePage: (arg0: string) => void;
-};
-
-export default function SideNav({ activePage, setActivePage }: Props) {
+export default function SideNav() {
   return (
     <div className="flex flex-col bg-gray-800 text-green-50 px-6 py-4">
       <SidenavHeader />
-      <SidenavMenu activePage={activePage} setActivePage={setActivePage} />
+      <SidenavMenu />
       <SidenavFooter />
     </div>
   );
@@ -31,9 +25,9 @@ const SidenavHeader = () => (
   </div>
 );
 
-const SidenavMenu = ({ activePage, setActivePage }: Props) => (
+const SidenavMenu = () => (
   <nav className="space-y-2">
-    <NavBarOptions activePage={activePage} setActivePage={setActivePage} />
+    <NavBarOptions smallScreen={false} />
   </nav>
 );
 
