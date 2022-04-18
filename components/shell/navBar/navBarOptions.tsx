@@ -1,6 +1,7 @@
 import React from "react";
 import Svg from "../../svg";
 import firebase from "../../../firebase/clientApp";
+import Link from "next/link";
 
 type Props = {
   activePage: string;
@@ -19,14 +20,14 @@ export default function NavBarOptions({
     <>
       <NavItem
         activePage={activePage}
-        link="#dashboard"
+        link="/"
         svgIcon={<Svg.ChartPieSvg />}
         title="Dashboard"
         setActivePage={setActivePage}
       />
       <NavItem
         activePage={activePage}
-        link="#users"
+        link="/users"
         svgIcon={<Svg.UsersSvg />}
         title="Users"
         setActivePage={setActivePage}
@@ -77,16 +78,17 @@ const NavItem = ({
   title,
   setActivePage,
 }: NavItemProps) => (
-  <a
-    onClick={() => setActivePage(title)}
-    href={link}
-    className={`flex items-center no-underline text-green-50 hover:text-green-100 p-3 rounded-md ${
-      activePage === title ? "bg-blue-800" : ""
-    }`}
-  >
-    {svgIcon}
-    <div className="font-bold pl-3">{title}</div>
-  </a>
+  <Link href={link}>
+    <a
+      onClick={() => setActivePage(title)}
+      className={`flex items-center no-underline text-green-50 hover:text-green-100 p-3 rounded-md ${
+        activePage === title ? "bg-blue-800" : ""
+      }`}
+    >
+      {svgIcon}
+      <div className="font-bold pl-3">{title}</div>
+    </a>
+  </Link>
 );
 
 const signOut = async () => {
