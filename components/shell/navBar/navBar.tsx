@@ -16,11 +16,7 @@ export default function NavBar({ activePage, setActivePage }: Props) {
       <nav className="bg-gray-800 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
-            <div className="flex items-center">
-              <div className="flex-shrink-0">
-                <img className="h-8 w-8" src="./fire.svg" alt="Workflow" />
-              </div>
-            </div>
+            <div className="flex items-center"></div>
             <div className="-mr-2 flex">
               <button
                 onClick={() => setIsOpen(!isOpen)}
