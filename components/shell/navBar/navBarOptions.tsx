@@ -2,11 +2,19 @@ import React from "react";
 import Svg from "../../svg";
 import firebase from "../../../firebase/clientApp";
 
+type Props = {
+  activePage: string;
+  /** callback to set the active page */
+  setActivePage: (arg0: string) => void;
+  /** Whether the navbar options are appearing on a small screen, or a collapsed navbar */
+  smallScreen?: boolean;
+};
+
 export default function NavBarOptions({
   activePage,
   setActivePage,
-  mobile = false,
-}) {
+  smallScreen = false,
+}: Props) {
   return (
     <>
       <NavItem
@@ -30,7 +38,7 @@ export default function NavBarOptions({
         title="Messages"
         setActivePage={setActivePage}
       />
-      {mobile && (
+      {smallScreen && (
         <>
           <NavItem
             activePage={activePage}
@@ -53,7 +61,22 @@ export default function NavBarOptions({
   );
 }
 
-const NavItem = ({ activePage, link, svgIcon, title, setActivePage }) => (
+type NavItemProps = {
+  activePage: string;
+  link: string;
+  /** callback to set the active page */
+  setActivePage: (arg0: string) => void;
+  svgIcon: JSX.Element;
+  title: string;
+};
+
+const NavItem = ({
+  activePage,
+  link,
+  svgIcon,
+  title,
+  setActivePage,
+}: NavItemProps) => (
   <a
     onClick={() => setActivePage(title)}
     href={link}
@@ -66,6 +89,6 @@ const NavItem = ({ activePage, link, svgIcon, title, setActivePage }) => (
   </a>
 );
 
-const signOut = async (ignore: any) => {
+const signOut = async () => {
   firebase.auth().signOut();
 };

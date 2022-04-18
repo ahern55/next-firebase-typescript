@@ -2,7 +2,14 @@ import React from "react";
 import NavBar from "./navBar";
 import SideNav from "./sideNav/SideNav";
 
-export default function Shell({ activePage, setActivePage, children }) {
+type Props = {
+  activePage: string;
+  /** callback to set the active page */
+  setActivePage: (arg0: string) => void;
+  children: JSX.Element;
+};
+
+export default function Shell({ activePage, setActivePage, children }: Props) {
   return (
     <>
       <div className="hidden h-screen md:grid grid-cols-custom-sidenav-layout">

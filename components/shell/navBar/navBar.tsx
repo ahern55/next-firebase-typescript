@@ -3,7 +3,13 @@ import { Transition } from "@headlessui/react";
 import { useState } from "react";
 import NavBarOptions from "./navBarOptions";
 
-export default function NavBar({ activePage, setActivePage }) {
+type Props = {
+  activePage: string;
+  /** callback to set the active page */
+  setActivePage: (arg0: string) => void;
+};
+
+export default function NavBar({ activePage, setActivePage }: Props) {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <>
@@ -71,13 +77,13 @@ export default function NavBar({ activePage, setActivePage }) {
           leaveFrom="opacity-100 scale-100"
           leaveTo="opacity-0 scale-95"
         >
-          {(ref) => (
+          {() => (
             <div className="md:hidden" id="mobile-menu">
               <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                 <NavBarOptions
                   activePage={activePage}
                   setActivePage={setActivePage}
-                  mobile={true}
+                  smallScreen={true}
                 />
               </div>
             </div>
