@@ -1,8 +1,8 @@
-import React from "react";
+import React, { MouseEventHandler } from "react";
 import Svg from "../../svg";
-import firebase from "../../../firebase/clientApp";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { signOut } from "../../../utils/genericUtils";
 
 type Props = {
   /** Whether the navbar options are appearing on a small screen, or a collapsed navbar */
@@ -14,15 +14,17 @@ export default function NavBarOptions({ smallScreen = false }: Props) {
     <>
       <NavItem link="/" svgIcon={<Svg.ChartPieSvg />} title="Dashboard" />
       <NavItem link="/users" svgIcon={<Svg.UsersSvg />} title="Users" />
-      <NavItem link="#users" svgIcon={<Svg.UsersSvg />} title="Messages" />
+      <NavItem link="/messages" svgIcon={<Svg.UsersSvg />} title="Messages" />
       {smallScreen && (
         <>
-          <NavItem link="#users" svgIcon={<Svg.CogSvg />} title="Settings" />
-          <NavItem
-            link="#users"
-            svgIcon={<Svg.SignOutSvg />}
-            title="Sign Out"
-          />
+          <NavItem link="/settings" svgIcon={<Svg.CogSvg />} title="Settings" />
+          <a
+            onClick={signOut}
+            className="flex items-center no-underline text-blue-50 hover:text-blue-100 p-3 rounded-md"
+          >
+            {<Svg.SignOutSvg />}
+            <div className="font-bold pl-3">Sign Out</div>
+          </a>
         </>
       )}
     </>
@@ -31,7 +33,6 @@ export default function NavBarOptions({ smallScreen = false }: Props) {
 
 type NavItemProps = {
   link: string;
-  /** callback to set the active page */
   svgIcon: JSX.Element;
   title: string;
 };
@@ -41,8 +42,8 @@ const NavItem = ({ link, svgIcon, title }: NavItemProps) => {
   return (
     <Link href={link}>
       <a
-        className={`flex items-center no-underline text-green-50 hover:text-green-100 p-3 rounded-md ${
-          isActivePage(title, router.pathname) ? "bg-blue-800" : ""
+        className={`flex items-center no-underline text-blue-50 hover:text-blue-100 p-3 rounded-md ${
+          isActivePage(link, router.pathname) ? "bg-blue-800" : ""
         }`}
       >
         {svgIcon}
@@ -52,11 +53,6 @@ const NavItem = ({ link, svgIcon, title }: NavItemProps) => {
   );
 };
 
-const isActivePage = (title: string, pathName: string) => {
-  console.log(pathName.toLowerCase().replace("/", ""));
-  return pathName.toLowerCase().replace("/", "") === title.toLowerCase();
-};
-
-const signOut = async () => {
-  firebase.auth().signOut();
+const isActivePage = (link: string, pathName: string) => {
+  return pathName.toLowerCase() === link.toLowerCase();
 };

@@ -2,6 +2,7 @@ import React from "react";
 import { Transition } from "@headlessui/react";
 import { useState } from "react";
 import NavBarOptions from "./navBarOptions";
+import LogoSvg from "../../../images/svg/logo.svg";
 
 export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,7 +11,10 @@ export default function NavBar() {
       <nav className="bg-gray-800 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
-            <div className="flex items-center"></div>
+            <div className="flex items-center text-xl font-bold pl-3 no-underline text-blue-50">
+              <LogoSvg height="1.5rem" width="1.5rem" />
+              <div className="pl-3">My App</div>
+            </div>
             <div className="-mr-2 flex">
               <button
                 onClick={() => setIsOpen(!isOpen)}

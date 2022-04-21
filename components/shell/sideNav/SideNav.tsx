@@ -1,7 +1,9 @@
 import React from "react";
-import firebase from "../../../firebase/clientApp";
 import Svg from "../../svg/";
 import NavBarOptions from "../navBar/navBarOptions";
+import Link from "next/link";
+import { signOut } from "../../../utils/genericUtils";
+import LogoSvg from "../../../images/svg/logo.svg";
 
 export default function SideNav() {
   return (
@@ -15,12 +17,12 @@ export default function SideNav() {
 
 const SidenavHeader = () => (
   <div className="flex items-center ml-1 pb-8">
-    <Svg.FireSvg />
+    <LogoSvg width="2.5rem" height="2.5rem" />
     <a
       href="#home"
-      className="text-xl font-bold pl-1 no-underline text-green-50 hover:text-green-100"
+      className="text-xl font-bold pl-3 no-underline text-blue-50 hover:text-blue-100"
     >
-      bored.io
+      My App
     </a>
   </div>
 );
@@ -33,16 +35,15 @@ const SidenavMenu = () => (
 
 const SidenavFooter = () => (
   <>
+    <Link href={"/settings"}>
+      <a className="flex items-end mt-auto px-1 no-underline text-blue-50 opacity-70 hover:opacity-100">
+        <Svg.CogSvg />
+        <div className="pl-2">Settings</div>
+      </a>
+    </Link>
     <a
       href="#settings"
-      className="flex items-end mt-auto px-1 no-underline text-green-50 opacity-70 hover:opacity-100"
-    >
-      <Svg.CogSvg />
-      <div className="pl-2">Settings</div>
-    </a>
-    <a
-      href="#settings"
-      className="flex items-center mt-3 px-1 no-underline text-green-50 opacity-70 hover:opacity-100"
+      className="flex items-center mt-3 px-1 no-underline text-blue-50 opacity-70 hover:opacity-100"
       onClick={signOut}
     >
       <Svg.SignOutSvg />
@@ -50,7 +51,3 @@ const SidenavFooter = () => (
     </a>
   </>
 );
-
-const signOut = async () => {
-  firebase.auth().signOut();
-};
