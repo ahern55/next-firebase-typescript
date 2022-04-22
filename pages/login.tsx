@@ -1,17 +1,16 @@
 import React from "react";
-import Shell from "../components/shell";
-import Content from "../components/content/Content";
+import Auth from "../components/auth";
 import { GetServerSidePropsContext } from "next";
 import nookies from "nookies";
 import { userIsLoggedIn } from "../firebase/auth/utils";
 
-export default function Messages() {
+export default function Login() {
   return (
-    <Shell>
-      <Content title="Messages">
-        <>Messages</>
-      </Content>
-    </Shell>
+    <>
+      <div className="relative flex min-h-screen flex-col justify-center overflow-hidden bg-cover bg-gradient-to-r from-blue-500 to-blue-800 py-6 sm:py-6">
+        <Auth />
+      </div>
+    </>
   );
 }
 
@@ -19,8 +18,8 @@ export async function getServerSideProps(ctx: GetServerSidePropsContext) {
   const cookies = nookies.get(ctx);
   const authenticated = await userIsLoggedIn(cookies);
 
-  if (!authenticated) {
-    ctx.res.writeHead(302, { Location: "/login" });
+  if (authenticated) {
+    ctx.res.writeHead(302, { Location: "/" });
     ctx.res.end();
   }
 
