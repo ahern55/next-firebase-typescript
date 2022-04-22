@@ -43,7 +43,7 @@ const NavItem = ({ link, svgIcon, title }: NavItemProps) => {
     <Link href={link}>
       <a
         className={`flex items-center no-underline text-blue-50 hover:text-blue-100 p-3 rounded-md ${
-          isActivePage(link, router.pathname) ? "bg-blue-800" : ""
+          isActivePage(link, router.pathname) ? "bg-indigo-800" : ""
         }`}
       >
         {svgIcon}

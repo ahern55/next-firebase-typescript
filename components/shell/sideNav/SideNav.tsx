@@ -34,14 +34,14 @@ const SidenavMenu = () => (
 
 const SidenavFooter = () => (
   <>
-    <Link href={"/settings"}>
+    <Link href="/settings">
       <a className="flex items-end mt-auto px-1 no-underline text-blue-50 opacity-70 hover:opacity-100">
         <Svg.CogSvg />
         <div className="pl-2">Settings</div>
       </a>
     </Link>
     <a
-      href="#settings"
+      href=""
       className="flex items-center mt-3 px-1 no-underline text-blue-50 opacity-70 hover:opacity-100"
       onClick={signOut}
     >
