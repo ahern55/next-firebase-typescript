@@ -18,12 +18,11 @@ export default function SideNav() {
 const SidenavHeader = () => (
   <div className="flex items-center ml-1 pb-8">
     <LogoSvg width="2.5rem" height="2.5rem" />
-    <a
-      href="#home"
-      className="text-xl font-bold pl-3 no-underline text-blue-50 hover:text-blue-100"
-    >
-      My App
-    </a>
+    <Link href="/">
+      <a className="text-xl font-bold pl-3 no-underline text-blue-50 hover:text-blue-100">
+        My App
+      </a>
+    </Link>
   </div>
 );
 
