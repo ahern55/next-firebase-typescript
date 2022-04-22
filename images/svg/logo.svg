@@ -8,19 +8,20 @@
    version="1.1"
    id="svg128"
    xmlns="http://www.w3.org/2000/svg"
+   style="fill:#93c5fd"
    xmlns:svg="http://www.w3.org/2000/svg">
   <defs
      id="defs125" />
   <g
      id="layer1">
     <circle
-       style="fill:#ffffff;fill-rule:evenodd;stroke-width:0.199293"
+       style="fill-rule:evenodd;stroke-width:0.199293"
        id="path176"
        cx="76.168777"
        cy="77.820572"
        r="20.173101" />
     <rect
-       style="fill:#ffffff;stroke-width:0.220491"
+       style="stroke-width:0.220491"
        id="rect302"
        width="38.641434"
        height="38.641434"
@@ -29,7 +30,7 @@
        ry="10"
        rx="10" />
     <rect
-       style="fill:#ffffff;stroke-width:0.220491"
+       style="stroke-width:0.220491"
        id="rect302-4"
        width="38.641434"
        height="38.641434"
@@ -38,7 +39,7 @@
        ry="10"
        rx="10" />
     <rect
-       style="fill:#ffffff;stroke-width:0.220491"
+       style="stroke-width:0.220491"
        id="rect302-8"
        width="38.641434"
        height="38.641434"
