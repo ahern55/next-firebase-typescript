@@ -30,7 +30,7 @@ export default function NavBarOptions({
       />
       <NavItem
         link="/messages"
-        svgIcon={<Svg.UsersSvg />}
+        svgIcon={<Svg.MessagesSvg />}
         title="Messages"
         expanded={expanded}
       />
