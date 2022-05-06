@@ -7,14 +7,33 @@ import { signOut } from "../../../utils/genericUtils";
 type Props = {
   /** Whether the navbar options are appearing on a small screen, or a collapsed navbar */
   smallScreen?: boolean;
+  expanded?: boolean;
 };
 
-export default function NavBarOptions({ smallScreen = false }: Props) {
+export default function NavBarOptions({
+  smallScreen = false,
+  expanded = true,
+}: Props) {
   return (
     <>
-      <NavItem link="/" svgIcon={<Svg.ChartPieSvg />} title="Dashboard" />
-      <NavItem link="/users" svgIcon={<Svg.UsersSvg />} title="Users" />
-      <NavItem link="/messages" svgIcon={<Svg.UsersSvg />} title="Messages" />
+      <NavItem
+        link="/"
+        svgIcon={<Svg.ChartPieSvg />}
+        title="Dashboard"
+        expanded={expanded}
+      />
+      <NavItem
+        link="/users"
+        svgIcon={<Svg.UsersSvg />}
+        title="Users"
+        expanded={expanded}
+      />
+      <NavItem
+        link="/messages"
+        svgIcon={<Svg.UsersSvg />}
+        title="Messages"
+        expanded={expanded}
+      />
       {smallScreen && (
         <>
           <NavItem link="/settings" svgIcon={<Svg.CogSvg />} title="Settings" />
@@ -35,9 +54,10 @@ type NavItemProps = {
   link: string;
   svgIcon: JSX.Element;
   title: string;
+  expanded?: boolean;
 };
 
-const NavItem = ({ link, svgIcon, title }: NavItemProps) => {
+const NavItem = ({ link, svgIcon, title, expanded = true }: NavItemProps) => {
   const router = useRouter();
   return (
     <Link href={link}>
@@ -47,7 +67,7 @@ const NavItem = ({ link, svgIcon, title }: NavItemProps) => {
         }`}
       >
         {svgIcon}
-        <div className="font-bold pl-3">{title}</div>
+        {expanded && <div className="font-bold pl-3">{title}</div>}
       </a>
     </Link>
   );
