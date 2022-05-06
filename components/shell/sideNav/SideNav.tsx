@@ -1,6 +1,6 @@
 import React from "react";
 import Svg from "../../svg/";
-import NavBarOptions from "../navBar/navBarOptions";
+import NavBarOptions from "../navBar/NavBarOptions";
 import Link from "next/link";
 import { signOut } from "../../../utils/genericUtils";
 import LogoSvg from "../../../images/svg/logo.svg";
