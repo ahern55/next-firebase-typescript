@@ -9,6 +9,7 @@ An app template for using Next.js with Firebase and Typescript!
 - Framework: [Next.js](https://nextjs.org/) (which uses [React](https://reactjs.org))
 - Authentication and Database: [Firebase](https://firebase.google.com/)
   - Firebase makes secure authentication almost trivial, providing simple APIs and CLIs with minimal boilerplate
+  - Firebase also provides handy UI components for sign-in with [FirebaseUI](https://firebase.google.com/docs/auth/web/firebaseui)
   - Some server-side authentication which makes use of [Nookies](https://www.npmjs.com/package/nookies)
   - Optional use of serverless Firebase [Cloud Functions](https://firebase.google.com/products/functions)
 - Language: [Typescript](https://www.typescriptlang.org/)
@@ -74,7 +75,7 @@ The template supports authentication by Google, GitHub, and Email/Password. You 
 
 ---
 
-### 🚀 Vercel Deployment Setup
+### IV. 🚀 Vercel Deployment Setup
 
 1. Create a new hobby [Vercel](https://vercel.com/) account, and link your GitHub (or whichever Git provider application you are using) account
 2. Create a new project, and link your project in the "Input Git Repository" step
