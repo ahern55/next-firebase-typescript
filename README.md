@@ -43,7 +43,7 @@ Start by forking the repository (since it is a template, click the **_Use this t
    1. Copy the Firebase service account string (starting in _"firebase-adminsdk"_) into the `FIREBASE_CLIENT_EMAIL` env entry
    2. Click the button to generate and download a new application private key. This will download a JSON file to your machine
    3. Open the JSON file. We are only interested in the pair with name `"private_key"`. Copy the _entire value_ of the key
-   4. Paste the key into the `FIREBASE_PRIVATE_KEY` environment variable entry. The key should be surrounded with both double and single quotes, as displayed in the template. Just trust me on this one 😉
+   4. Paste the key into the `FIREBASE_PRIVATE_KEY` environment variable entry. The key should be surrounded with both double and single quotes, as displayed in the template. i.e. '"-----BEGIN PRIVATE KEY..."' Just trust me on this one 😉
 4. Enable the Firestore Database
 
 ---
@@ -81,6 +81,7 @@ The template supports authentication by Google, GitHub, and Email/Password. You 
 2. Create a new project, and link your project in the "Input Git Repository" step
 3. The default configurations should work for you. Don't click Deploy yet!
 4. In the Environment Variables dropdown, add all of the name/value pairs in your `.env.local` file
+   > **Note:** for the `FIREBASE_PRIVATE_KEY`, _omit the single quotes!_ So the string should only be wrapped in double quotes. i.e. "-----BEGIN PRIVATE KEY..."
 5. Now you are ready to deploy your app!
 
 ---
