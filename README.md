@@ -82,3 +82,44 @@ The template supports authentication by Google, GitHub, and Email/Password. You 
 3. The default configurations should work for you. Don't click Deploy yet!
 4. In the Environment Variables dropdown, add all of the name/value pairs in your `.env.local` file
 5. Now you are ready to deploy your app!
+
+---
+
+### V. ☁️ Optional: Firebase Cloud Function Setup
+
+The Firebase Spark plan (free tier) does not support Cloud Functions. You'll have to upgrade to the Blaze pay as you go plan before integrating with Firebase Cloud Functions.
+
+> Note that you have 2M cloud function invocations, so for a hobby app, you likely won't have to worry about paying anything. [Pricing Details](https://firebase.google.com/pricing)
+
+This template contains a simple use case of cloud functions, which adds a user entry to the Firestore database whenever a new user is authenticated with our app.
+
+1. Upgrade your Firebase account to the Blaze plan
+2. Download and install the [Firebase CLI](https://firebase.google.com/docs/cli)
+3. Log into the Firebase CLI with `firebase login` in your shell. (again see [documentation](https://firebase.google.com/docs/cli#sign-in-test-cli))
+4. To deploy your Cloud Functions, simply run `firebase deploy --project <your-project-name>`. Alternatively, you can create a `.firebaserc` file in your project's top-level directory (sample below) and then simply run `firebase deploy` from within that directory.
+
+**`.firebaserc:`**
+
+```
+{
+  "projects": {
+    "default": "next-firebase-typescript"
+  }
+}
+```
+
+---
+
+## Acknowledgements and Resources
+
+I used plenty of handy resources to help me understand how the different Next.js and Firebase pieces fit together. Here are a few I used to get started:
+
+- Jarrod Watts's [NextJS + Firebase Tutorial](https://github.com/jarrodwatts/pineapple)
+- Shreyas Jadhav's [next-firebase-starter](https://github.com/shreyas-jadhav/next-firebase-starter)
+
+### Additional Documentation
+
+- [Next.js docs](https://nextjs.org/docs)
+- [Firebase docs](https://firebase.google.com/docs)
+- [Tailwind docs](https://tailwindcss.com/docs/)
+- [Vercel docs](https://vercel.com/docs)
