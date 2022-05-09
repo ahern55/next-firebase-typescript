@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import hero from "../../images/hero.png";
 import LogoSvg from "../../images/svg/logo.svg";
+import GitHubSvg from "../svg/GitHubSvg";
 
 export default function Splash() {
   return (
@@ -16,6 +17,16 @@ export default function Splash() {
             </div>
 
             <div className="flex w-1/2 justify-end content-center">
+              <div className="text-blue-300 hover:text-indigo-800 mx-2 py-1 align-middle">
+                <a
+                  href="https://github.com/ahern55/next-firebase-typescript"
+                  target={"_blank"}
+                  rel="noreferrer"
+                >
+                  <GitHubSvg />
+                </a>
+              </div>
+
               <Link href="/login">
                 <a>
                   <button className="bg-blue-300 hover:bg-indigo-800 text-white font-bold py-2 px-4 rounded-full">

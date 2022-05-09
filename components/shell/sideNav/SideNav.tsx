@@ -6,6 +6,7 @@ import { signOut } from "../../../utils/genericUtils";
 import LogoSvg from "../../../images/svg/logo.svg";
 import { useAppDispatch, useAppSelector } from "../../../utils/hooks";
 import { toggle, selectSideNavExpanded } from "./sideNavSlice";
+import GitHubSvg from "../../svg/GitHubSvg";
 
 const ExpandedContext = createContext(true);
 
@@ -61,20 +62,32 @@ const SideNavFooter = () => {
       </Link>
       <a
         href=""
-        className="flex ml-1 items-center mt-3 px-1 no-underline text-blue-50 opacity-70 hover:opacity-100"
+        className="flex ml-1 items-center mt-3 px-1 pb-2 no-underline text-blue-50 opacity-70 hover:opacity-100"
         onClick={signOut}
       >
         <Svg.SignOutSvg />
         {expanded && <div className="pl-2">Sign Out</div>}
       </a>
-      <div className="flex justify-end">
-        <button
-          onClick={() => {
-            dispatch(toggle());
-          }}
-        >
-          {expanded ? "<" : ">"}
-        </button>
+      <hr></hr>
+      <div className="flex pt-2">
+        <div className="text-blue-50 opacity-70 hover:opacity-100 flex-2 justify-start mx-2 py-1">
+          <a
+            href="https://github.com/ahern55/next-firebase-typescript"
+            target={"_blank"}
+            rel="noreferrer"
+          >
+            <GitHubSvg />
+          </a>
+        </div>
+        <div className="text-right flex-1 align-middle">
+          <button
+            onClick={() => {
+              dispatch(toggle());
+            }}
+          >
+            {expanded ? "<" : ">"}
+          </button>
+        </div>
       </div>
     </>
   );
