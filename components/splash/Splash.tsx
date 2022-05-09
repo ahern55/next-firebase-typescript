@@ -3,7 +3,6 @@ import Link from "next/link";
 import Image from "next/image";
 import hero from "../../images/hero.png";
 import LogoSvg from "../../images/svg/logo.svg";
-import styles from "./splash.module.css";
 
 export default function Splash() {
   return (
@@ -12,7 +11,7 @@ export default function Splash() {
         <div className="w-full container mx-auto p-6">
           <div className="w-full flex items-center justify-between">
             <div className="flex items-center text-blue-300 no-underline hover:no-underline font-bold text-2xl lg:text-4xl">
-              <LogoSvg width="2.5rem" height="2.5rem" className={styles.logo} />
+              <LogoSvg width="2.5rem" height="2.5rem" />
               <div className="pl-2">My App</div>
             </div>
 
