@@ -9,7 +9,7 @@ export default function Users() {
   return (
     <Shell>
       <Content title="Users">
-        <>eee</>
+        <>Users</>
       </Content>
     </Shell>
   );
