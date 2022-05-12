@@ -15,8 +15,6 @@ An app template for using Next.js with Firebase and Typescript!
 - Language: [Typescript](https://www.typescriptlang.org/)
 - Styles: [Tailwind](https://tailwindcss.com/)
   - Also [Headless UI](https://headlessui.dev/), a handy set of styled UI components atop Tailwind
-- State Management: [Redux](https://react-redux.js.org/)
-  - This is a bit overkill for the current use case, but I thought it useful to add the boilerplate/ configurations.
 - Hosting and CD: [Vercel](https://vercel.com/)
 
 ---
